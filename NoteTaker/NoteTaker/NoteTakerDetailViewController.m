@@ -14,6 +14,8 @@
 
 @implementation NoteTakerDetailViewController
 
+@synthesize noteTitle, dateLabel, locationLabel, noteBody;
+
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem
@@ -36,6 +38,40 @@
     if (self.noteTitle){
         self.noteTitle.text = [self.detailItem description];
     }
+    
+    UITapGestureRecognizer *titleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    [titleTap setNumberOfTapsRequired:1];
+    [noteTitle setUserInteractionEnabled:YES];
+    [noteTitle addGestureRecognizer:titleTap];
+    
+}
+
+- (void)handleTap:(UIGestureRecognizer *)gestureRecognizer{
+    
+    // hide label
+    [noteTitle setHidden:YES];
+    
+    // create editable text field
+    UITextField *titleTextField = [[UITextField alloc] initWithFrame:noteTitle.frame];
+    [self.view addSubview:titleTextField];
+    [titleTextField setTextAlignment:UITextAlignmentCenter];
+    [titleTextField setFont:noteTitle.font];
+    [titleTextField setText:noteTitle.text];
+    [titleTextField setDelegate:self];
+    [titleTextField becomeFirstResponder];
+    [titleTextField setReturnKeyType:UIReturnKeyDone];
+    
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([string isEqualToString:@"\n"]){
+        [noteTitle setHidden:NO];
+        [noteTitle setText:textField.text];
+        [textField removeFromSuperview];
+        [textField resignFirstResponder];
+        return NO;
+    }
+    return YES;
 }
 
 - (void)viewDidLoad

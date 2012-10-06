@@ -10,7 +10,7 @@
 
 @class Note;
 
-@interface NoteTakerDetailViewController : UIViewController
+@interface NoteTakerDetailViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) id detailItem;
 

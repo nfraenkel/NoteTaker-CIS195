@@ -26,7 +26,6 @@
 		4C70C8641620D206005E40BF /* NoteTakerMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70C8611620D206005E40BF /* NoteTakerMasterViewController.m */; };
 		4C70C8651620D206005E40BF /* NoteTakerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70C8631620D206005E40BF /* NoteTakerDetailViewController.m */; };
 		4C70C8701620D615005E40BF /* notes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C70C86F1620D615005E40BF /* notes.png */; };
-		4C70C8721620D6C9005E40BF /* notes.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C70C8711620D6C9005E40BF /* notes.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +56,6 @@
 		4C70C8621620D206005E40BF /* NoteTakerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTakerDetailViewController.h; sourceTree = "<group>"; };
 		4C70C8631620D206005E40BF /* NoteTakerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTakerDetailViewController.m; sourceTree = "<group>"; };
 		4C70C86F1620D615005E40BF /* notes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notes.png; sourceTree = "<group>"; };
-		4C70C8711620D6C9005E40BF /* notes.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = notes.jpeg; path = NoteTaker/notes.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +75,6 @@
 		4C70C7EE1620D00A005E40BF = {
 			isa = PBXGroup;
 			children = (
-				4C70C8711620D6C9005E40BF /* notes.jpeg */,
 				4C70C8031620D00B005E40BF /* NoteTaker */,
 				4C70C7FC1620D00A005E40BF /* Frameworks */,
 				4C70C7FA1620D00A005E40BF /* Products */,
@@ -202,7 +199,6 @@
 				4C70C8231620D00B005E40BF /* second.png in Resources */,
 				4C70C8251620D00B005E40BF /* second@2x.png in Resources */,
 				4C70C8701620D615005E40BF /* notes.png in Resources */,
-				4C70C8721620D6C9005E40BF /* notes.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +331,7 @@
 				4C70C82A1620D00B005E40BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -139,7 +139,7 @@
                         <outlet property="dateLabel" destination="Tx4-TR-h1W" id="kwD-l9-kS4"/>
                         <outlet property="locationLabel" destination="pku-6w-MNe" id="C7R-VO-UeX"/>
                         <outlet property="noteBody" destination="yaA-lV-oky" id="V6s-Lw-WZm"/>
-                        <outlet property="noteTitle" destination="TQD-vB-dnz" id="6wm-Wy-4P1"/>
+                        <outlet property="noteTitle" destination="TQD-vB-dnz" id="Y3s-Qq-igB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yy1-5m-oIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,7 +173,7 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
-        <class className="NoteTakerDetailViewController" superclassName="UITableViewController">
+        <class className="NoteTakerDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteTakerDetailViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
