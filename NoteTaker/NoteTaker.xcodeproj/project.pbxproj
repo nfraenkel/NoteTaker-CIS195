@@ -26,6 +26,8 @@
 		4C70C8641620D206005E40BF /* NoteTakerMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70C8611620D206005E40BF /* NoteTakerMasterViewController.m */; };
 		4C70C8651620D206005E40BF /* NoteTakerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70C8631620D206005E40BF /* NoteTakerDetailViewController.m */; };
 		4C70C8701620D615005E40BF /* notes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C70C86F1620D615005E40BF /* notes.png */; };
+		4C91B9451622077200DD45C2 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C91B9441622077200DD45C2 /* Note.m */; };
+		4C91B9491622081000DD45C2 /* NoteDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C91B9481622081000DD45C2 /* NoteDataController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,10 @@
 		4C70C8621620D206005E40BF /* NoteTakerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTakerDetailViewController.h; sourceTree = "<group>"; };
 		4C70C8631620D206005E40BF /* NoteTakerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTakerDetailViewController.m; sourceTree = "<group>"; };
 		4C70C86F1620D615005E40BF /* notes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notes.png; sourceTree = "<group>"; };
+		4C91B9431622077200DD45C2 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		4C91B9441622077200DD45C2 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		4C91B9471622081000DD45C2 /* NoteDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDataController.h; sourceTree = "<group>"; };
+		4C91B9481622081000DD45C2 /* NoteDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDataController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +110,15 @@
 			children = (
 				4C70C8601620D206005E40BF /* NoteTakerMasterViewController.h */,
 				4C70C8611620D206005E40BF /* NoteTakerMasterViewController.m */,
+				4C91B9471622081000DD45C2 /* NoteDataController.h */,
+				4C91B9481622081000DD45C2 /* NoteDataController.m */,
 				4C70C8621620D206005E40BF /* NoteTakerDetailViewController.h */,
 				4C70C8631620D206005E40BF /* NoteTakerDetailViewController.m */,
 				4C70C80C1620D00B005E40BF /* NoteTakerAppDelegate.h */,
 				4C70C80D1620D00B005E40BF /* NoteTakerAppDelegate.m */,
 				4C70C8151620D00B005E40BF /* MainStoryboard.storyboard */,
+				4C91B9431622077200DD45C2 /* Note.h */,
+				4C91B9441622077200DD45C2 /* Note.m */,
 				4C70C8181620D00B005E40BF /* NoteTakerFirstViewController.h */,
 				4C70C8191620D00B005E40BF /* NoteTakerFirstViewController.m */,
 				4C70C81B1620D00B005E40BF /* first.png */,
@@ -215,6 +225,8 @@
 				4C70C8211620D00B005E40BF /* NoteTakerSecondViewController.m in Sources */,
 				4C70C8641620D206005E40BF /* NoteTakerMasterViewController.m in Sources */,
 				4C70C8651620D206005E40BF /* NoteTakerDetailViewController.m in Sources */,
+				4C91B9451622077200DD45C2 /* Note.m in Sources */,
+				4C91B9491622081000DD45C2 /* NoteDataController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

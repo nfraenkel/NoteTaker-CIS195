@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NoteTaker/NoteTakerDetailViewController.m"
-         timestampString = "371255030.195303"
+         timestampString = "371328505.561092"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "42"
-         endingLineNumber = "42"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
          landmarkName = "-configureView"
          landmarkType = "5">
       </FileBreakpoint>

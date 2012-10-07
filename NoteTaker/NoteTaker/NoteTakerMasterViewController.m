@@ -62,6 +62,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"cell %@", indexPath);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     NSDate *object = _objects[indexPath.row];
@@ -101,6 +102,21 @@
 }
 */
 
+-(void)NoteTakerDetailViewControllerDidFinish:(NoteTakerDetailViewController *)controller name:(NSString *)name body:(NSString *)body{
+//
+    NSLog(@"heereeee");
+    
+    for (int i = 0; i < _objects.count; i++){
+        NSLog(@"object %d date: %@", i, _objects.description);
+    }
+    
+//    if ([name length] || [body length]) {
+//        [self.tabBarController add:name body:body];
+//        [[self tableView] reloadData];
+//    }
+////    [self dismissModalViewControllerAnimated:YES];
+    
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {

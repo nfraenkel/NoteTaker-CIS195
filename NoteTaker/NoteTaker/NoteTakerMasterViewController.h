@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NoteTakerDetailViewController.h"
 
-@interface NoteTakerMasterViewController : UITableViewController
+@interface NoteTakerMasterViewController : UITableViewController <NoteTakerDetailViewControllerDelegate>
 
 @end

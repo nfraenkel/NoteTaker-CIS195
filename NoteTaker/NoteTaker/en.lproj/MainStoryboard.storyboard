@@ -116,15 +116,30 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mnq-y3-0UV">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="zOP-JF-zxJ" eventType="touchUpInside" id="Qgv-xu-xJM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Tx4-TR-h1W" firstAttribute="top" secondItem="pku-6w-MNe" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5yQ-TP-Ox7"/>
+                            <constraint firstItem="Mnq-y3-0UV" firstAttribute="top" secondItem="h0y-cF-tQk" secondAttribute="top" type="default" id="6Ix-Z7-UNV"/>
                             <constraint firstItem="pku-6w-MNe" firstAttribute="leading" secondItem="h0y-cF-tQk" secondAttribute="leading" type="default" id="G1q-Pm-tPn"/>
                             <constraint firstAttribute="bottom" secondItem="yaA-lV-oky" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Ihk-B2-k1w"/>
                             <constraint firstItem="pku-6w-MNe" firstAttribute="trailing" secondItem="h0y-cF-tQk" secondAttribute="trailing" type="default" id="Mpy-pW-7Ko"/>
                             <constraint firstItem="yaA-lV-oky" firstAttribute="top" secondItem="Tx4-TR-h1W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ToD-O0-3Pm"/>
                             <constraint firstAttribute="trailing" secondItem="yaA-lV-oky" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="agZ-c8-qrK"/>
+                            <constraint firstItem="Mnq-y3-0UV" firstAttribute="trailing" secondItem="h0y-cF-tQk" secondAttribute="trailing" type="default" id="die-Nx-xif"/>
                             <constraint firstItem="TQD-vB-dnz" firstAttribute="leading" secondItem="h0y-cF-tQk" secondAttribute="leading" type="default" id="jJj-Qx-IaK"/>
                             <constraint firstItem="yaA-lV-oky" firstAttribute="leading" secondItem="h0y-cF-tQk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="js9-gd-i3j"/>
                             <constraint firstItem="Tx4-TR-h1W" firstAttribute="trailing" secondItem="h0y-cF-tQk" secondAttribute="trailing" type="default" id="o6k-tB-caW"/>
@@ -169,26 +184,6 @@
     <resources>
         <image name="first" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NoteTakerDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteTakerDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="noteBody" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="noteTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NoteTakerFirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteTakerFirstViewController.h"/>
-        </class>
-        <class className="NoteTakerMasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteTakerMasterViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

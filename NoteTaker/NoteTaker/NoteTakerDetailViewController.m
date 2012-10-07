@@ -15,6 +15,7 @@
 @implementation NoteTakerDetailViewController
 
 @synthesize noteTitle, dateLabel, locationLabel, noteBody;
+@synthesize delegate;
 
 #pragma mark - Managing the detail item
 
@@ -72,6 +73,12 @@
         return NO;
     }
     return YES;
+}
+
+-(void)saveButtonPressed:(id)sender {
+    
+    [[self delegate] NoteTakerDetailViewControllerDidFinish:self name:noteTitle.text body:noteBody.text];
+    
 }
 
 - (void)viewDidLoad
