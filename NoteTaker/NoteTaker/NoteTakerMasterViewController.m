@@ -10,8 +10,11 @@
 
 #import "NoteTakerDetailViewController.h"
 
+#import "Note.h"
+
 @interface NoteTakerMasterViewController () {
     NSMutableArray *_objects;
+    NSMutableArray *notes;
 }
 @end
 
@@ -43,7 +46,12 @@
     if (!_objects) {
         _objects = [[NSMutableArray alloc] init];
     }
+    if (!notes){
+        notes = [[NSMutableArray alloc] init];
+    }
     [_objects insertObject:[NSDate date] atIndex:0];
+    Note *newNote = [[Note alloc] initWithName:@"New Note" location:@"Everywhere" date:[NSDate date] body:@"No Body Yet!!!"];
+    [notes insertObject:newNote atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -65,7 +73,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     NSDate *object = _objects[indexPath.row];
+    NSString *title = [notes[indexPath.row] title];
+//    cell.textLabel.text = [object description];
     cell.textLabel.text = [object description];
+    cell.detailTextLabel.text = title;
     return cell;
 }
 
@@ -105,8 +116,9 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+        Note *newNote = notes[indexPath.row];
+                        
+        [[segue destinationViewController] setOurNote:newNote withMasterDataArray:notes andIndex:indexPath.row];
     }
 }
 

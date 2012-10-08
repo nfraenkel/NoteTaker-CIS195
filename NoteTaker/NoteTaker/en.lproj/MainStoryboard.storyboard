@@ -136,10 +136,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="LrC-Lk-9X3"/>
                     <connections>
-                        <outlet property="dateLabel" destination="Tx4-TR-h1W" id="kwD-l9-kS4"/>
-                        <outlet property="locationLabel" destination="pku-6w-MNe" id="C7R-VO-UeX"/>
-                        <outlet property="noteBody" destination="yaA-lV-oky" id="V6s-Lw-WZm"/>
-                        <outlet property="noteTitle" destination="TQD-vB-dnz" id="Y3s-Qq-igB"/>
+                        <outlet property="dateLabel" destination="Tx4-TR-h1W" id="8kU-Wk-nmL"/>
+                        <outlet property="locationLabel" destination="pku-6w-MNe" id="6y0-q7-re2"/>
+                        <outlet property="noteBody" destination="yaA-lV-oky" id="k20-Nb-zEw"/>
+                        <outlet property="noteTitle" destination="TQD-vB-dnz" id="eYU-H5-kQv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yy1-5m-oIt" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,6 +7,7 @@
 //
 
 #import "NoteTakerDetailViewController.h"
+#import "Note.h"
 
 @interface NoteTakerDetailViewController ()
 - (void)configureView;
@@ -14,16 +15,19 @@
 
 @implementation NoteTakerDetailViewController
 
+@synthesize note, masterDataArray;
 @synthesize noteTitle, dateLabel, locationLabel, noteBody;
 
-#pragma mark - Managing the detail item
+int masterDataIndex = 0;
 
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
+- (void)setOurNote:(Note *)newNote withMasterDataArray:(NSMutableArray *)data andIndex:(int)newIndex{
+    
+    self.masterDataArray = data;
+    masterDataIndex = newIndex;
+    
+    if (self.note != newNote){
+        self.note = newNote;
+ 
         [self configureView];
     }
 }
@@ -31,19 +35,34 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
+    
+    
 
+    static NSDateFormatter *formatter = nil;
+    if (formatter == nil) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterFullStyle];
+    }
     if (self.dateLabel) {
-        self.dateLabel.text = [self.detailItem description];
+        self.dateLabel.text = [formatter stringFromDate:note.date];
+//        self.dateLabel.text = [formatter stringFromDate:_detailItem];
     }
     if (self.noteTitle){
-        self.noteTitle.text = [self.detailItem description];
+//        self.noteTitle.text = @"No title";
+        self.noteTitle.text = [self.note title];
+    }
+    if (self.noteBody){
+        self.noteBody.text = self.note.body;
+    }
+    if (self.locationLabel ){
+        self.locationLabel.text = self.note.location;
     }
     
     UITapGestureRecognizer *titleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [titleTap setNumberOfTapsRequired:1];
     [noteTitle setUserInteractionEnabled:YES];
     [noteTitle addGestureRecognizer:titleTap];
-    
+        
 }
 
 - (void)handleTap:(UIGestureRecognizer *)gestureRecognizer{
@@ -67,6 +86,8 @@
     if ([string isEqualToString:@"\n"]){
         [noteTitle setHidden:NO];
         [noteTitle setText:textField.text];
+        self.note.title = noteTitle.text;
+        [masterDataArray replaceObjectAtIndex:masterDataIndex withObject:self.note];
         [textField removeFromSuperview];
         [textField resignFirstResponder];
         return NO;
@@ -77,6 +98,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"viewDidLoad");
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }

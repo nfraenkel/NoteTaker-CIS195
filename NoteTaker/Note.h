@@ -15,4 +15,5 @@
 @property (nonatomic, copy) NSString* body;
 @property (nonatomic, strong) NSDate* date;
 
+-(id)initWithName:(NSString *)newTitle location:(NSString *)newLocation date:(NSDate *)newDate body:(NSString *)newBody;
 @end
