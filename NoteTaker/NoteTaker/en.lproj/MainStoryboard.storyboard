@@ -33,11 +33,11 @@
             </objects>
             <point key="canvasLocation" x="1219" y="669"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Notes-->
         <scene sceneID="EwW-Jk-r9e">
             <objects>
                 <navigationController definesPresentationContext="YES" id="jsC-hl-Y8Y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="TT5-y9-WpJ"/>
+                    <tabBarItem key="tabBarItem" title="Notes" image="65-note.png" id="TT5-y9-WpJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c5M-h6-bHl">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -67,7 +67,7 @@
                             <constraint firstItem="neI-OA-Cp5" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="lSA-WR-qKo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="07-map-marker.png" id="7"/>
                     <connections>
                         <outlet property="map" destination="neI-OA-Cp5" id="sCg-Tp-dt8"/>
                     </connections>
@@ -156,7 +156,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="16" height="16"/>
+        <image name="07-map-marker.png" width="16" height="26"/>
+        <image name="65-note.png" width="15" height="24"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
