@@ -12,7 +12,7 @@
 
 @synthesize title, location, date, body;
 
--(id)initWithName:(NSString *)newTitle location:(NSString *)newLocation date:(NSDate *)newDate body:(NSString *)newBody {
+-(id)initWithName:(NSString *)newTitle location:(CLLocation *)newLocation date:(NSDate *)newDate body:(NSString *)newBody {
     
     self = [super init];
     if (self){

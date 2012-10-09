@@ -54,7 +54,8 @@ BOOL editingNoteBody = NO;
         self.noteBody.text = self.note.body;
     }
     if (self.locationLabel ){
-        self.locationLabel.text = self.note.location;
+        NSString *locationString = [NSString stringWithFormat:@"<%+.6f, %+.6f>", note.location.coordinate.latitude, note.location.coordinate.longitude];
+        self.locationLabel.text = locationString;
     }
     
     // setup tap gesture recognizer for title label

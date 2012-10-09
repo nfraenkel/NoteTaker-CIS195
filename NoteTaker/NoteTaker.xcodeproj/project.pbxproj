@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4C2BF4271623C6B600B69B01 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2BF4241623C69A00B69B01 /* MapKit.framework */; };
 		4C2BF4291623C6BC00B69B01 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2BF4281623C6BC00B69B01 /* CoreLocation.framework */; };
+		4C2BF4301623EBCF00B69B01 /* 07-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2BF42E1623EBCE00B69B01 /* 07-map-marker.png */; };
+		4C2BF4311623EBCF00B69B01 /* 65-note.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2BF42F1623EBCE00B69B01 /* 65-note.png */; };
+		4C5E9E0616248D3300A2F8D8 /* NotesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E9E0516248D3300A2F8D8 /* NotesModel.m */; };
 		4C70C7FE1620D00B005E40BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C70C7FD1620D00B005E40BF /* UIKit.framework */; };
 		4C70C8001620D00B005E40BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C70C7FF1620D00B005E40BF /* Foundation.framework */; };
 		4C70C8021620D00B005E40BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C70C8011620D00B005E40BF /* CoreGraphics.framework */; };
@@ -34,6 +37,10 @@
 /* Begin PBXFileReference section */
 		4C2BF4241623C69A00B69B01 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4C2BF4281623C6BC00B69B01 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4C2BF42E1623EBCE00B69B01 /* 07-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07-map-marker.png"; sourceTree = "<group>"; };
+		4C2BF42F1623EBCE00B69B01 /* 65-note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "65-note.png"; sourceTree = "<group>"; };
+		4C5E9E0416248D3300A2F8D8 /* NotesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotesModel.h; path = ../NotesModel.h; sourceTree = "<group>"; };
+		4C5E9E0516248D3300A2F8D8 /* NotesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotesModel.m; path = ../NotesModel.m; sourceTree = "<group>"; };
 		4C70C7F91620D00A005E40BF /* NoteTaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteTaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C70C7FD1620D00B005E40BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4C70C7FF1620D00B005E40BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -113,6 +120,8 @@
 		4C70C8031620D00B005E40BF /* NoteTaker */ = {
 			isa = PBXGroup;
 			children = (
+				4C5E9E0416248D3300A2F8D8 /* NotesModel.h */,
+				4C5E9E0516248D3300A2F8D8 /* NotesModel.m */,
 				4C7F579F1623536D0047F105 /* Note.h */,
 				4C7F57A01623536D0047F105 /* Note.m */,
 				4C70C8601620D206005E40BF /* NoteTakerMasterViewController.h */,
@@ -138,6 +147,8 @@
 		4C70C8041620D00B005E40BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C2BF42E1623EBCE00B69B01 /* 07-map-marker.png */,
+				4C2BF42F1623EBCE00B69B01 /* 65-note.png */,
 				4C70C86F1620D615005E40BF /* notes.png */,
 				4C70C8051620D00B005E40BF /* NoteTaker-Info.plist */,
 				4C70C8061620D00B005E40BF /* InfoPlist.strings */,
@@ -212,6 +223,8 @@
 				4C70C8231620D00B005E40BF /* second.png in Resources */,
 				4C70C8251620D00B005E40BF /* second@2x.png in Resources */,
 				4C70C8701620D615005E40BF /* notes.png in Resources */,
+				4C2BF4301623EBCF00B69B01 /* 07-map-marker.png in Resources */,
+				4C2BF4311623EBCF00B69B01 /* 65-note.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +242,7 @@
 				4C70C8641620D206005E40BF /* NoteTakerMasterViewController.m in Sources */,
 				4C70C8651620D206005E40BF /* NoteTakerDetailViewController.m in Sources */,
 				4C7F57A11623536D0047F105 /* Note.m in Sources */,
+				4C5E9E0616248D3300A2F8D8 /* NotesModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

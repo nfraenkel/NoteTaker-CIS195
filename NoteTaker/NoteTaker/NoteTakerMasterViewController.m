@@ -11,21 +11,31 @@
 #import "Note.h"
 
 @interface NoteTakerMasterViewController () {
-//    NSMutableArray *_objects;
-    NSMutableArray *notes;
+
 }
 @end
 
 @implementation NoteTakerMasterViewController
+
+@synthesize locationManager, notes, model;
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
 }
 
+-(id)init {
+    self = [super init];
+    if (self){
+        self.title = @"Notes";
+        self.tabBarItem.image = [UIImage imageNamed:@"65-note.png"];
+        return self;
+    }
+    return nil;
+}
+
 - (void)viewDidLoad
 {
-    NSLog(@"MASTER VIEWDIDLOAD");
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -33,13 +43,32 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
-    [self beginCollectionLocations];
+    model = [NotesModel sharedDataModel];
+    
+    
 }
 
 
 -(void)viewWillAppear:(BOOL)animated {
+    [self beginCollectionLocations];
+    
+    self.model.notes = self.notes;
+    
     [self.tableView reloadData];
     
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    NSLog(@"viewwilldisappear");
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    
+    NSLog(@"viewdiddisappear");
+    self.model.notes = self.notes;
+    
+    // once the view disappears, stop location stuff as to avoid draining batter!
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,8 +103,7 @@
         notes = [[NSMutableArray alloc] init];
     }
     CLLocation *location = self.locationManager.location;
-    NSString *locationString = [NSString stringWithFormat:@"<%+.6f, %+.6f>", location.coordinate.latitude, location.coordinate.longitude]; 
-    Note *newNote = [[Note alloc] initWithName:[NSString stringWithFormat:@"New Note %d", notes.count + 1] location:locationString date:[NSDate date] body:@"No Body Yet!!!"];
+    Note *newNote = [[Note alloc] initWithName:[NSString stringWithFormat:@"New Note %d", notes.count + 1] location:location date:[NSDate date] body:@"No Body Yet!!!"];
     [notes insertObject:newNote atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];

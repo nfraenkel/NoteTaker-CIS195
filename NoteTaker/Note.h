@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface Note : NSObject
 
 @property (nonatomic, copy) NSString* title;
-@property (nonatomic, copy) NSString* location;
+@property (nonatomic, strong) CLLocation *location;
 @property (nonatomic, copy) NSString* body;
 @property (nonatomic, strong) NSDate* date;
 
--(id)initWithName:(NSString *)newTitle location:(NSString *)newLocation date:(NSDate *)newDate body:(NSString *)newBody;
+-(id)initWithName:(NSString *)newTitle location:(CLLocation *)newLocation date:(NSDate *)newDate body:(NSString *)newBody;
 @end
