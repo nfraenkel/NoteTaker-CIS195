@@ -19,6 +19,7 @@
 @synthesize noteTitle, dateLabel, locationLabel, noteBody;
 
 int masterDataIndex = 0;
+BOOL editingNoteBody = NO;
 
 - (void)setOurNote:(Note *)newNote withMasterDataArray:(NSMutableArray *)data andIndex:(int)newIndex{
     
@@ -45,10 +46,8 @@ int masterDataIndex = 0;
     }
     if (self.dateLabel) {
         self.dateLabel.text = [formatter stringFromDate:note.date];
-//        self.dateLabel.text = [formatter stringFromDate:_detailItem];
     }
     if (self.noteTitle){
-//        self.noteTitle.text = @"No title";
         self.noteTitle.text = [self.note title];
     }
     if (self.noteBody){
@@ -58,14 +57,41 @@ int masterDataIndex = 0;
         self.locationLabel.text = self.note.location;
     }
     
-    UITapGestureRecognizer *titleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    // setup tap gesture recognizer for title label
+    UITapGestureRecognizer *titleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTitleTap:)];
     [titleTap setNumberOfTapsRequired:1];
     [noteTitle setUserInteractionEnabled:YES];
     [noteTitle addGestureRecognizer:titleTap];
+    
+    [noteBody setDelegate:self];
+    
         
 }
 
-- (void)handleTap:(UIGestureRecognizer *)gestureRecognizer{
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    if (touch.view != noteBody && editingNoteBody) {
+        NSLog(@"YES!!!!!");
+        [noteBody resignFirstResponder];
+    }
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    NSLog(@"YES");
+    editingNoteBody = YES;
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView {
+    editingNoteBody = NO;
+    NSLog(@"NO");
+    // update current note with new body
+    self.note.body = textView.text;
+    // update master data array!
+    [masterDataArray replaceObjectAtIndex:masterDataIndex withObject:self.note];
+}
+
+
+- (void)handleTitleTap:(UIGestureRecognizer *)gestureRecognizer{
     
     // hide label
     [noteTitle setHidden:YES];
@@ -86,7 +112,9 @@ int masterDataIndex = 0;
     if ([string isEqualToString:@"\n"]){
         [noteTitle setHidden:NO];
         [noteTitle setText:textField.text];
+        // update current note with new title
         self.note.title = noteTitle.text;
+        // update master data array!
         [masterDataArray replaceObjectAtIndex:masterDataIndex withObject:self.note];
         [textField removeFromSuperview];
         [textField resignFirstResponder];
@@ -98,7 +126,6 @@ int masterDataIndex = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"viewDidLoad");
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }

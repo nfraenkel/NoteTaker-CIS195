@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Note.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface NoteTakerMasterViewController : UITableViewController
+
+@interface NoteTakerMasterViewController : UITableViewController <CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLLocationManager* locationManager;
 
 @end

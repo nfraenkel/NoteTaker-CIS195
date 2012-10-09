@@ -10,7 +10,7 @@
 
 @class Note;
 
-@interface NoteTakerDetailViewController : UIViewController <UITextFieldDelegate>
+@interface NoteTakerDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) Note *note;
 @property (strong, nonatomic) NSMutableArray *masterDataArray;

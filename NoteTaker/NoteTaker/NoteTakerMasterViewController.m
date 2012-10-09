@@ -7,13 +7,11 @@
 //
 
 #import "NoteTakerMasterViewController.h"
-
 #import "NoteTakerDetailViewController.h"
-
 #import "Note.h"
 
 @interface NoteTakerMasterViewController () {
-    NSMutableArray *_objects;
+//    NSMutableArray *_objects;
     NSMutableArray *notes;
 }
 @end
@@ -27,12 +25,21 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"MASTER VIEWDIDLOAD");
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    [self beginCollectionLocations];
+}
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,16 +48,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void)beginCollectionLocations {
+    if (!self.locationManager) {
+        self.locationManager = [[CLLocationManager alloc] init];
+    }
+    
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = 500;
+    
+    [self.locationManager startUpdatingLocation];
+}
+
+// Delegate method from the CLLocationManagerDelegate protocol.
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations {
+    CLLocation* location = [locations lastObject];
+    NSLog(@"latitude %+.6f, longitude %+.6f\n", location.coordinate.latitude, location.coordinate.longitude);
+}
+
 - (void)insertNewObject:(id)sender
 {
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
     if (!notes){
         notes = [[NSMutableArray alloc] init];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    Note *newNote = [[Note alloc] initWithName:@"New Note" location:@"Everywhere" date:[NSDate date] body:@"No Body Yet!!!"];
+    CLLocation *location = self.locationManager.location;
+    NSString *locationString = [NSString stringWithFormat:@"<%+.6f, %+.6f>", location.coordinate.latitude, location.coordinate.longitude]; 
+    Note *newNote = [[Note alloc] initWithName:[NSString stringWithFormat:@"New Note %d", notes.count + 1] location:locationString date:[NSDate date] body:@"No Body Yet!!!"];
     [notes insertObject:newNote atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -65,18 +90,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return notes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
     NSString *title = [notes[indexPath.row] title];
-//    cell.textLabel.text = [object description];
-    cell.textLabel.text = [object description];
-    cell.detailTextLabel.text = title;
+    NSString *loc = [[notes[indexPath.row] date] description];
+    cell.textLabel.text = title;
+    cell.detailTextLabel.text = loc;
     return cell;
 }
 
@@ -89,7 +113,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
+        [notes removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
