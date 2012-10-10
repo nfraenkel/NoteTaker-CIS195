@@ -16,15 +16,6 @@
 
 @synthesize map, model;
 
--(id)init {
-    self = [super init];
-    if (self){
-        NSLog(@"init firstviewcontroller!!!!!!!!!!!!");
-        self.title = @"Map";
-        self.tabBarItem.image = [UIImage imageNamed:@"07-map-marker"];
-    }
-    return nil;
-}
 
 - (void)viewDidLoad
 {
@@ -33,8 +24,6 @@
     
     self.title = @"Map";
     self.tabBarItem.image = [UIImage imageNamed:@"07-map-marker"];
-
-    
     
     model = [NotesModel sharedDataModel];
     
@@ -50,7 +39,6 @@
 -(void)viewDidAppear:(BOOL)animated {
     [self populateMap];
     
-//    NSLog(@"FIRST model notes: %@", model.notes);
     for (Note *n in model.notes){
         NSLog(@"<%f, %f>", n.location.coordinate.latitude, n.location.coordinate.longitude);
     }
@@ -67,6 +55,16 @@
         [self.map addAnnotation:annot];
     }
     
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [self clearMap];
+}
+
+-(void)clearMap {
+    for (MKPointAnnotation *a in self.map.annotations){
+        [self.map removeAnnotation:a];
+    }
 }
 
 @end

@@ -32,6 +32,8 @@
 		4C70C8651620D206005E40BF /* NoteTakerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70C8631620D206005E40BF /* NoteTakerDetailViewController.m */; };
 		4C70C8701620D615005E40BF /* notes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C70C86F1620D615005E40BF /* notes.png */; };
 		4C7F57A11623536D0047F105 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F57A01623536D0047F105 /* Note.m */; };
+		4CA73C581624F23E00B27D66 /* texturetastic_gray_@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA73C561624F23E00B27D66 /* texturetastic_gray_@2X.png */; };
+		4CA73C591624F23E00B27D66 /* texturetastic_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA73C571624F23E00B27D66 /* texturetastic_gray.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		4C70C86F1620D615005E40BF /* notes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notes.png; sourceTree = "<group>"; };
 		4C7F579F1623536D0047F105 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = ../Note.h; sourceTree = "<group>"; };
 		4C7F57A01623536D0047F105 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = ../Note.m; sourceTree = "<group>"; };
+		4CA73C561624F23E00B27D66 /* texturetastic_gray_@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "texturetastic_gray_@2X.png"; sourceTree = "<group>"; };
+		4CA73C571624F23E00B27D66 /* texturetastic_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texturetastic_gray.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 		4C70C8031620D00B005E40BF /* NoteTaker */ = {
 			isa = PBXGroup;
 			children = (
+				4CA73C561624F23E00B27D66 /* texturetastic_gray_@2X.png */,
+				4CA73C571624F23E00B27D66 /* texturetastic_gray.png */,
 				4C5E9E0416248D3300A2F8D8 /* NotesModel.h */,
 				4C5E9E0516248D3300A2F8D8 /* NotesModel.m */,
 				4C7F579F1623536D0047F105 /* Note.h */,
@@ -225,6 +231,8 @@
 				4C70C8701620D615005E40BF /* notes.png in Resources */,
 				4C2BF4301623EBCF00B69B01 /* 07-map-marker.png in Resources */,
 				4C2BF4311623EBCF00B69B01 /* 65-note.png in Resources */,
+				4CA73C581624F23E00B27D66 /* texturetastic_gray_@2X.png in Resources */,
+				4CA73C591624F23E00B27D66 /* texturetastic_gray.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

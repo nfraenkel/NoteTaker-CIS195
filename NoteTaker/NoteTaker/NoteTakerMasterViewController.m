@@ -24,16 +24,6 @@
     [super awakeFromNib];
 }
 
--(id)init {
-    self = [super init];
-    if (self){
-        self.title = @"Notes";
-        self.tabBarItem.image = [UIImage imageNamed:@"65-note.png"];
-        return self;
-    }
-    return nil;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -59,16 +49,14 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    NSLog(@"viewwilldisappear");
+//    NSLog(@"viewwilldisappear");
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
     
-    NSLog(@"viewdiddisappear");
+//    NSLog(@"viewdiddisappear");
     self.model.notes = self.notes;
     
-    // once the view disappears, stop location stuff as to avoid draining batter!
-    [self.locationManager stopUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,8 +74,7 @@
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.distanceFilter = 500;
-    
-    [self.locationManager startUpdatingLocation];
+
 }
 
 // Delegate method from the CLLocationManagerDelegate protocol.
@@ -99,6 +86,9 @@
 
 - (void)insertNewObject:(id)sender
 {
+    [self.locationManager startUpdatingLocation];
+    
+    
     if (!notes){
         notes = [[NSMutableArray alloc] init];
     }
@@ -107,6 +97,9 @@
     [notes insertObject:newNote atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [self.locationManager stopUpdatingLocation];
+
 }
 
 #pragma mark - Table View
@@ -126,9 +119,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     NSString *title = [notes[indexPath.row] title];
-    NSString *loc = [[notes[indexPath.row] date] description];
+    NSString *date = [[notes[indexPath.row] date] description];
     cell.textLabel.text = title;
-    cell.detailTextLabel.text = loc;
+    cell.detailTextLabel.text = date;
     return cell;
 }
 

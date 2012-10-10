@@ -45,7 +45,7 @@ BOOL editingNoteBody = NO;
         [formatter setDateStyle:NSDateFormatterFullStyle];
     }
     if (self.dateLabel) {
-        self.dateLabel.text = [formatter stringFromDate:note.date];
+        self.dateLabel.text = note.date.description;
     }
     if (self.noteTitle){
         self.noteTitle.text = [self.note title];

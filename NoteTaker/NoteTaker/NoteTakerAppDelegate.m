@@ -8,24 +8,14 @@
 
 #import "NoteTakerAppDelegate.h"
 
-#import "NoteTakerMasterViewController.h"
-#import "NoteTakerFirstViewController.h"
-
 @implementation NoteTakerAppDelegate
 
-@synthesize window, tabBarController;
+@synthesize window;
 //@synthesize tab1, tab2;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
-    NSLog(@"FUCK YES");
-    
-//    NSMutableArray *data = [[NSMutableArray alloc] init];
-//    
-//    tab1.notes = data;
-//    tab2.notes = data;
     
     
     return YES;

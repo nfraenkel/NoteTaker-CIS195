@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
-        <!--Note Taker Master View Controller - Root View Controller-->
+        <!--Note Taker Master View Controller - Your Notes-->
         <scene sceneID="igR-JG-Cf4">
             <objects>
                 <tableViewController id="5Ex-mT-kw0" customClass="NoteTakerMasterViewController" sceneMemberID="viewController">
@@ -13,12 +13,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="lT0-st-okg">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="bv6-oP-oUu" detailTextLabel="2kT-Jd-Ufs" style="IBUITableViewCellStyleSubtitle" id="lT0-st-okg">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bv6-oP-oUu">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kT-Jd-Ufs">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
@@ -27,7 +39,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="0o4-A8-qn4"/>
+                    <navigationItem key="navigationItem" title="Your Notes" id="0o4-A8-qn4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egr-Mz-N2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,25 +96,35 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="texturetastic_gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="lw9-5S-PVY"/>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQD-vB-dnz">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Bn7-3S-DBd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.028664994629999999" blue="0.38457455839999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yaA-lV-oky">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.028664994634871828" blue="0.38457455842391308" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tx4-TR-h1W">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="cKj-2o-Njt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.028664994629999999" blue="0.38457455839999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pku-6w-MNe">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;100, -100>" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pku-6w-MNe">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="BcV-7I-cr0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.028664994629999999" blue="0.38457455839999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -114,6 +136,9 @@
                             <constraint firstItem="pku-6w-MNe" firstAttribute="trailing" secondItem="h0y-cF-tQk" secondAttribute="trailing" type="default" id="Mpy-pW-7Ko"/>
                             <constraint firstItem="yaA-lV-oky" firstAttribute="top" secondItem="Tx4-TR-h1W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ToD-O0-3Pm"/>
                             <constraint firstAttribute="trailing" secondItem="yaA-lV-oky" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="agZ-c8-qrK"/>
+                            <constraint firstItem="lw9-5S-PVY" firstAttribute="trailing" secondItem="h0y-cF-tQk" secondAttribute="trailing" type="default" id="cbs-1s-TOf"/>
+                            <constraint firstItem="lw9-5S-PVY" firstAttribute="bottom" secondItem="h0y-cF-tQk" secondAttribute="bottom" type="default" id="fvG-1s-3qN"/>
+                            <constraint firstItem="lw9-5S-PVY" firstAttribute="leading" secondItem="h0y-cF-tQk" secondAttribute="leading" type="default" id="h2Q-yO-kTW"/>
                             <constraint firstItem="TQD-vB-dnz" firstAttribute="leading" secondItem="h0y-cF-tQk" secondAttribute="leading" type="default" id="jJj-Qx-IaK"/>
                             <constraint firstItem="yaA-lV-oky" firstAttribute="leading" secondItem="h0y-cF-tQk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="js9-gd-i3j"/>
                             <constraint firstItem="Tx4-TR-h1W" firstAttribute="trailing" secondItem="h0y-cF-tQk" secondAttribute="trailing" type="default" id="o6k-tB-caW"/>
@@ -121,6 +146,7 @@
                             <constraint firstItem="TQD-vB-dnz" firstAttribute="trailing" secondItem="h0y-cF-tQk" secondAttribute="trailing" type="default" id="wUR-3n-ePU"/>
                             <constraint firstItem="pku-6w-MNe" firstAttribute="top" secondItem="TQD-vB-dnz" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xaF-kY-jhM"/>
                             <constraint firstItem="TQD-vB-dnz" firstAttribute="top" secondItem="h0y-cF-tQk" secondAttribute="top" constant="20" symbolic="YES" type="default" id="yoc-Nc-QCr"/>
+                            <constraint firstItem="lw9-5S-PVY" firstAttribute="top" secondItem="h0y-cF-tQk" secondAttribute="top" type="default" id="zpl-a7-szm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LrC-Lk-9X3"/>
@@ -158,6 +184,7 @@
     <resources>
         <image name="07-map-marker.png" width="16" height="26"/>
         <image name="65-note.png" width="15" height="24"/>
+        <image name="texturetastic_gray.png" width="476" height="476"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
