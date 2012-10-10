@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NoteTakerFirstViewController.h"
+#import "NoteTakerMasterViewController.h"
 
 @interface NoteTakerAppDelegate : UIResponder <UIApplicationDelegate>
 

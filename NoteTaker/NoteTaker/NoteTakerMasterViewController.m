@@ -7,15 +7,17 @@
 //
 
 #import "NoteTakerMasterViewController.h"
-
 #import "NoteTakerDetailViewController.h"
+#import "Note.h"
 
 @interface NoteTakerMasterViewController () {
-    NSMutableArray *_objects;
+
 }
 @end
 
 @implementation NoteTakerMasterViewController
+
+@synthesize locationManager, notes, model;
 
 - (void)awakeFromNib
 {
@@ -30,6 +32,31 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    model = [NotesModel sharedDataModel];
+    
+    
+}
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self beginCollectionLocations];
+    
+    self.model.notes = self.notes;
+    
+    [self.tableView reloadData];
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+//    NSLog(@"viewwilldisappear");
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    
+//    NSLog(@"viewdiddisappear");
+    self.model.notes = self.notes;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,14 +65,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void)beginCollectionLocations {
+    if (!self.locationManager) {
+        self.locationManager = [[CLLocationManager alloc] init];
+    }
+    
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = 500;
+
+}
+
+// Delegate method from the CLLocationManagerDelegate protocol.
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations {
+    CLLocation* location = [locations lastObject];
+    NSLog(@"latitude %+.6f, longitude %+.6f\n", location.coordinate.latitude, location.coordinate.longitude);
+}
+
 - (void)insertNewObject:(id)sender
 {
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
+    [self.locationManager startUpdatingLocation];
+    
+    
+    if (!notes){
+        notes = [[NSMutableArray alloc] init];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
+    CLLocation *location = self.locationManager.location;
+    Note *newNote = [[Note alloc] initWithName:[NSString stringWithFormat:@"New Note %d", notes.count + 1] location:location date:[NSDate date] body:@"No Body Yet!!!"];
+    [notes insertObject:newNote atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [self.locationManager stopUpdatingLocation];
+
 }
 
 #pragma mark - Table View
@@ -57,7 +111,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return notes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,8 +119,10 @@
     NSLog(@"cell %@", indexPath);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    NSString *title = [notes[indexPath.row] title];
+    NSString *date = [[notes[indexPath.row] date] description];
+    cell.textLabel.text = title;
+    cell.detailTextLabel.text = date;
     return cell;
 }
 
@@ -79,7 +135,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
+        [notes removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -121,8 +177,9 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+        Note *newNote = notes[indexPath.row];
+                        
+        [[segue destinationViewController] setOurNote:newNote withMasterDataArray:notes andIndex:indexPath.row];
     }
 }
 

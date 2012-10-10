@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NoteTakerDetailViewController.h"
+#import "Note.h"
+#import <CoreLocation/CoreLocation.h>
+#import "NotesModel.h"
 
-@interface NoteTakerMasterViewController : UITableViewController <NoteTakerDetailViewControllerDelegate>
+
+@interface NoteTakerMasterViewController : UITableViewController <CLLocationManagerDelegate, UITabBarControllerDelegate>
+
+@property (strong, nonatomic) CLLocationManager* locationManager;
+@property (nonatomic, copy) NSMutableArray *notes;
+
+@property (retain) NotesModel *model;
+
 
 @end

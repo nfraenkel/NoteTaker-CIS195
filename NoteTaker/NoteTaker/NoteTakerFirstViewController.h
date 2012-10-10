@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "NoteTakerMasterViewController.h"
+#import "NotesModel.h"
 
 @interface NoteTakerFirstViewController : UIViewController
+
+// Reference to MKMapView
+@property (weak, nonatomic) IBOutlet MKMapView *map;
+
+@property (strong, nonatomic) NoteTakerMasterViewController *master;
+
+@property (nonatomic, copy) NSMutableArray *notes;
+
+@property (retain) NotesModel *model;
+
 
 @end

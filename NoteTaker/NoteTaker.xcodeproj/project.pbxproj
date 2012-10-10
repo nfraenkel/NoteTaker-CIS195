@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2BF4271623C6B600B69B01 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2BF4241623C69A00B69B01 /* MapKit.framework */; };
+		4C2BF4291623C6BC00B69B01 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2BF4281623C6BC00B69B01 /* CoreLocation.framework */; };
+		4C2BF4301623EBCF00B69B01 /* 07-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2BF42E1623EBCE00B69B01 /* 07-map-marker.png */; };
+		4C2BF4311623EBCF00B69B01 /* 65-note.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2BF42F1623EBCE00B69B01 /* 65-note.png */; };
+		4C5E9E0616248D3300A2F8D8 /* NotesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E9E0516248D3300A2F8D8 /* NotesModel.m */; };
 		4C70C7FE1620D00B005E40BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C70C7FD1620D00B005E40BF /* UIKit.framework */; };
 		4C70C8001620D00B005E40BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C70C7FF1620D00B005E40BF /* Foundation.framework */; };
 		4C70C8021620D00B005E40BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C70C8011620D00B005E40BF /* CoreGraphics.framework */; };
@@ -26,11 +31,18 @@
 		4C70C8641620D206005E40BF /* NoteTakerMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70C8611620D206005E40BF /* NoteTakerMasterViewController.m */; };
 		4C70C8651620D206005E40BF /* NoteTakerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70C8631620D206005E40BF /* NoteTakerDetailViewController.m */; };
 		4C70C8701620D615005E40BF /* notes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C70C86F1620D615005E40BF /* notes.png */; };
-		4C91B9451622077200DD45C2 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C91B9441622077200DD45C2 /* Note.m */; };
-		4C91B9491622081000DD45C2 /* NoteDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C91B9481622081000DD45C2 /* NoteDataController.m */; };
+		4C7F57A11623536D0047F105 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F57A01623536D0047F105 /* Note.m */; };
+		4CA73C581624F23E00B27D66 /* texturetastic_gray_@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA73C561624F23E00B27D66 /* texturetastic_gray_@2X.png */; };
+		4CA73C591624F23E00B27D66 /* texturetastic_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA73C571624F23E00B27D66 /* texturetastic_gray.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C2BF4241623C69A00B69B01 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4C2BF4281623C6BC00B69B01 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4C2BF42E1623EBCE00B69B01 /* 07-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07-map-marker.png"; sourceTree = "<group>"; };
+		4C2BF42F1623EBCE00B69B01 /* 65-note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "65-note.png"; sourceTree = "<group>"; };
+		4C5E9E0416248D3300A2F8D8 /* NotesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotesModel.h; path = ../NotesModel.h; sourceTree = "<group>"; };
+		4C5E9E0516248D3300A2F8D8 /* NotesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotesModel.m; path = ../NotesModel.m; sourceTree = "<group>"; };
 		4C70C7F91620D00A005E40BF /* NoteTaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteTaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C70C7FD1620D00B005E40BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4C70C7FF1620D00B005E40BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,10 +70,10 @@
 		4C70C8621620D206005E40BF /* NoteTakerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTakerDetailViewController.h; sourceTree = "<group>"; };
 		4C70C8631620D206005E40BF /* NoteTakerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTakerDetailViewController.m; sourceTree = "<group>"; };
 		4C70C86F1620D615005E40BF /* notes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notes.png; sourceTree = "<group>"; };
-		4C91B9431622077200DD45C2 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
-		4C91B9441622077200DD45C2 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
-		4C91B9471622081000DD45C2 /* NoteDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDataController.h; sourceTree = "<group>"; };
-		4C91B9481622081000DD45C2 /* NoteDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDataController.m; sourceTree = "<group>"; };
+		4C7F579F1623536D0047F105 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = ../Note.h; sourceTree = "<group>"; };
+		4C7F57A01623536D0047F105 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = ../Note.m; sourceTree = "<group>"; };
+		4CA73C561624F23E00B27D66 /* texturetastic_gray_@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "texturetastic_gray_@2X.png"; sourceTree = "<group>"; };
+		4CA73C571624F23E00B27D66 /* texturetastic_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texturetastic_gray.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +81,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2BF4271623C6B600B69B01 /* MapKit.framework in Frameworks */,
 				4C70C7FE1620D00B005E40BF /* UIKit.framework in Frameworks */,
+				4C2BF4291623C6BC00B69B01 /* CoreLocation.framework in Frameworks */,
 				4C70C8001620D00B005E40BF /* Foundation.framework in Frameworks */,
 				4C70C8021620D00B005E40BF /* CoreGraphics.framework in Frameworks */,
 			);
@@ -98,6 +112,8 @@
 		4C70C7FC1620D00A005E40BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C2BF4281623C6BC00B69B01 /* CoreLocation.framework */,
+				4C2BF4241623C69A00B69B01 /* MapKit.framework */,
 				4C70C7FD1620D00B005E40BF /* UIKit.framework */,
 				4C70C7FF1620D00B005E40BF /* Foundation.framework */,
 				4C70C8011620D00B005E40BF /* CoreGraphics.framework */,
@@ -108,17 +124,19 @@
 		4C70C8031620D00B005E40BF /* NoteTaker */ = {
 			isa = PBXGroup;
 			children = (
+				4CA73C561624F23E00B27D66 /* texturetastic_gray_@2X.png */,
+				4CA73C571624F23E00B27D66 /* texturetastic_gray.png */,
+				4C5E9E0416248D3300A2F8D8 /* NotesModel.h */,
+				4C5E9E0516248D3300A2F8D8 /* NotesModel.m */,
+				4C7F579F1623536D0047F105 /* Note.h */,
+				4C7F57A01623536D0047F105 /* Note.m */,
 				4C70C8601620D206005E40BF /* NoteTakerMasterViewController.h */,
 				4C70C8611620D206005E40BF /* NoteTakerMasterViewController.m */,
-				4C91B9471622081000DD45C2 /* NoteDataController.h */,
-				4C91B9481622081000DD45C2 /* NoteDataController.m */,
 				4C70C8621620D206005E40BF /* NoteTakerDetailViewController.h */,
 				4C70C8631620D206005E40BF /* NoteTakerDetailViewController.m */,
 				4C70C80C1620D00B005E40BF /* NoteTakerAppDelegate.h */,
 				4C70C80D1620D00B005E40BF /* NoteTakerAppDelegate.m */,
 				4C70C8151620D00B005E40BF /* MainStoryboard.storyboard */,
-				4C91B9431622077200DD45C2 /* Note.h */,
-				4C91B9441622077200DD45C2 /* Note.m */,
 				4C70C8181620D00B005E40BF /* NoteTakerFirstViewController.h */,
 				4C70C8191620D00B005E40BF /* NoteTakerFirstViewController.m */,
 				4C70C81B1620D00B005E40BF /* first.png */,
@@ -135,6 +153,8 @@
 		4C70C8041620D00B005E40BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C2BF42E1623EBCE00B69B01 /* 07-map-marker.png */,
+				4C2BF42F1623EBCE00B69B01 /* 65-note.png */,
 				4C70C86F1620D615005E40BF /* notes.png */,
 				4C70C8051620D00B005E40BF /* NoteTaker-Info.plist */,
 				4C70C8061620D00B005E40BF /* InfoPlist.strings */,
@@ -209,6 +229,10 @@
 				4C70C8231620D00B005E40BF /* second.png in Resources */,
 				4C70C8251620D00B005E40BF /* second@2x.png in Resources */,
 				4C70C8701620D615005E40BF /* notes.png in Resources */,
+				4C2BF4301623EBCF00B69B01 /* 07-map-marker.png in Resources */,
+				4C2BF4311623EBCF00B69B01 /* 65-note.png in Resources */,
+				4CA73C581624F23E00B27D66 /* texturetastic_gray_@2X.png in Resources */,
+				4CA73C591624F23E00B27D66 /* texturetastic_gray.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,8 +249,8 @@
 				4C70C8211620D00B005E40BF /* NoteTakerSecondViewController.m in Sources */,
 				4C70C8641620D206005E40BF /* NoteTakerMasterViewController.m in Sources */,
 				4C70C8651620D206005E40BF /* NoteTakerDetailViewController.m in Sources */,
-				4C91B9451622077200DD45C2 /* Note.m in Sources */,
-				4C91B9491622081000DD45C2 /* NoteDataController.m in Sources */,
+				4C7F57A11623536D0047F105 /* Note.m in Sources */,
+				4C5E9E0616248D3300A2F8D8 /* NotesModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

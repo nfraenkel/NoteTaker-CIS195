@@ -7,6 +7,7 @@
 //
 
 #import "NoteTakerDetailViewController.h"
+#import "Note.h"
 
 @interface NoteTakerDetailViewController ()
 - (void)configureView;
@@ -14,17 +15,21 @@
 
 @implementation NoteTakerDetailViewController
 
+@synthesize note, masterDataArray;
 @synthesize noteTitle, dateLabel, locationLabel, noteBody;
 @synthesize delegate;
 
-#pragma mark - Managing the detail item
+int masterDataIndex = 0;
+BOOL editingNoteBody = NO;
 
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
+- (void)setOurNote:(Note *)newNote withMasterDataArray:(NSMutableArray *)data andIndex:(int)newIndex{
+    
+    self.masterDataArray = data;
+    masterDataIndex = newIndex;
+    
+    if (self.note != newNote){
+        self.note = newNote;
+ 
         [self configureView];
     }
 }
@@ -32,22 +37,63 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
+    
+    
 
+    static NSDateFormatter *formatter = nil;
+    if (formatter == nil) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterFullStyle];
+    }
     if (self.dateLabel) {
-        self.dateLabel.text = [self.detailItem description];
+        self.dateLabel.text = note.date.description;
     }
     if (self.noteTitle){
-        self.noteTitle.text = [self.detailItem description];
+        self.noteTitle.text = [self.note title];
+    }
+    if (self.noteBody){
+        self.noteBody.text = self.note.body;
+    }
+    if (self.locationLabel ){
+        NSString *locationString = [NSString stringWithFormat:@"<%+.6f, %+.6f>", note.location.coordinate.latitude, note.location.coordinate.longitude];
+        self.locationLabel.text = locationString;
     }
     
-    UITapGestureRecognizer *titleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    // setup tap gesture recognizer for title label
+    UITapGestureRecognizer *titleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTitleTap:)];
     [titleTap setNumberOfTapsRequired:1];
     [noteTitle setUserInteractionEnabled:YES];
     [noteTitle addGestureRecognizer:titleTap];
     
+    [noteBody setDelegate:self];
+    
+        
 }
 
-- (void)handleTap:(UIGestureRecognizer *)gestureRecognizer{
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    if (touch.view != noteBody && editingNoteBody) {
+        NSLog(@"YES!!!!!");
+        [noteBody resignFirstResponder];
+    }
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    NSLog(@"YES");
+    editingNoteBody = YES;
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView {
+    editingNoteBody = NO;
+    NSLog(@"NO");
+    // update current note with new body
+    self.note.body = textView.text;
+    // update master data array!
+    [masterDataArray replaceObjectAtIndex:masterDataIndex withObject:self.note];
+}
+
+
+- (void)handleTitleTap:(UIGestureRecognizer *)gestureRecognizer{
     
     // hide label
     [noteTitle setHidden:YES];
@@ -68,6 +114,10 @@
     if ([string isEqualToString:@"\n"]){
         [noteTitle setHidden:NO];
         [noteTitle setText:textField.text];
+        // update current note with new title
+        self.note.title = noteTitle.text;
+        // update master data array!
+        [masterDataArray replaceObjectAtIndex:masterDataIndex withObject:self.note];
         [textField removeFromSuperview];
         [textField resignFirstResponder];
         return NO;

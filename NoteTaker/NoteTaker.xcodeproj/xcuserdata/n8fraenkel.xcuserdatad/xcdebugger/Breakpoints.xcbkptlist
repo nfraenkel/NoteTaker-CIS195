@@ -8,12 +8,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NoteTaker/NoteTakerDetailViewController.m"
-         timestampString = "371328505.561092"
+         timestampString = "371445801.895292"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "43"
-         endingLineNumber = "43"
-         landmarkName = "-configureView"
+         startingLineNumber = "21"
+         endingLineNumber = "21"
+         landmarkName = "@implementation NoteTakerDetailViewController"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "NoteTaker/NoteTakerFirstViewController.m"
+         timestampString = "371520876.486775"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
+         landmarkName = "-clearMap"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
